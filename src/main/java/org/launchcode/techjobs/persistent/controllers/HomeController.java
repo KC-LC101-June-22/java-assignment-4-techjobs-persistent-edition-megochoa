@@ -65,7 +65,7 @@ public class HomeController {
             model.addAttribute("title", "Add Job");
            List employers = (List<Employer>) employerRepository.findAll();
             model.addAttribute("employers", employers);
-            return "add";
+            return "/add";
         }
 
         Optional<Employer> optEmployer = employerRepository.findById(employerId);
@@ -79,7 +79,7 @@ public class HomeController {
 
         jobRepository.save(newJob);
 
-        return "redirect./";
+        return "add";
     }
 
     @GetMapping("view/{jobId}")
